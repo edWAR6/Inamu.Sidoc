@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1e10e5ba0fe44b8bfca4ef84539cc43" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="SIDOCModel.TematicaGeografica" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.CiudadEditorial" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.Estado" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.InformacionDescriptiva" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.NivelBibliografico" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.NivelDeRegistro" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.Periocidad" Width="1.5" PointX="0.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.Documento" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.TipoDeFecha" Width="1.5" PointX="0.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.TipoDeLiteratura" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDOCModel.Libro" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" ManuallyRouted="false" />
+        <AssociationConnector Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SIDOCModel.Usuario" Width="1.5" PointX="7.375" PointY="1.375" />
+        <EntityTypeShape EntityType="SIDOCModel.NivelEducativo" Width="1.5" PointX="12" PointY="4.625" />
+        <AssociationConnector Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_NIVE" />
+        <EntityTypeShape EntityType="SIDOCModel.Genero" Width="1.5" PointX="13.875" PointY="3.25" />
+        <EntityTypeShape EntityType="SIDOCModel.TipoDeIdentificacion" Width="1.5" PointX="7.5" PointY="7.5" />
+        <EntityTypeShape EntityType="SIDOCModel.Perfil" Width="1.5" PointX="10.25" PointY="5.875" />
+        <AssociationConnector Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_SEXO" />
+        <AssociationConnector Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_TIPO" />
+        <AssociationConnector Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_T_PERFIL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

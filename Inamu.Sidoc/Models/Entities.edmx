@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SIDOCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SIDOCModelStoreContainer">
+          <EntitySet Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntityType="SIDOCModel.Store.CAT_CATEGORIA_TEMATICA_GEOGRAFICA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_CIUDAD_EDITORIAL" EntityType="SIDOCModel.Store.CAT_CIUDAD_EDITORIAL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_ESTADO" EntityType="SIDOCModel.Store.CAT_ESTADO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_INFORMACION_DESCRIPTIVA" EntityType="SIDOCModel.Store.CAT_INFORMACION_DESCRIPTIVA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_NIVEL_BIBLIOGRAFICO" EntityType="SIDOCModel.Store.CAT_NIVEL_BIBLIOGRAFICO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_NIVEL_EDUCATIVO" EntityType="SIDOCModel.Store.CAT_NIVEL_EDUCATIVO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_NIVEL_REGISTRO" EntityType="SIDOCModel.Store.CAT_NIVEL_REGISTRO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_PERIOCIDAD" EntityType="SIDOCModel.Store.CAT_PERIOCIDAD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_SEXO" EntityType="SIDOCModel.Store.CAT_SEXO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_TIPO_DOCUMENTO" EntityType="SIDOCModel.Store.CAT_TIPO_DOCUMENTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_TIPO_FECHA" EntityType="SIDOCModel.Store.CAT_TIPO_FECHA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_TIPO_IDENTIFICACION" EntityType="SIDOCModel.Store.CAT_TIPO_IDENTIFICACION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_TIPO_LITERATURA" EntityType="SIDOCModel.Store.CAT_TIPO_LITERATURA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_LIBRO" EntityType="SIDOCModel.Store.T_LIBRO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_PERFIL" EntityType="SIDOCModel.Store.T_PERFIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_USUARIO" EntityType="SIDOCModel.Store.T_USUARIO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Bibliografico" Association="SIDOCModel.Store.FK_T_Libro_Cat_Nivel_Bibliografico">
+            <End Role="CAT_NIVEL_BIBLIOGRAFICO" EntitySet="CAT_NIVEL_BIBLIOGRAFICO" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Registro" Association="SIDOCModel.Store.FK_T_Libro_Cat_Nivel_Registro">
+            <End Role="CAT_NIVEL_REGISTRO" EntitySet="CAT_NIVEL_REGISTRO" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Documento" Association="SIDOCModel.Store.FK_T_Libro_Cat_Tipo_Documento">
+            <End Role="CAT_TIPO_DOCUMENTO" EntitySet="CAT_TIPO_DOCUMENTO" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Fecha" Association="SIDOCModel.Store.FK_T_Libro_Cat_Tipo_Fecha">
+            <End Role="CAT_TIPO_FECHA" EntitySet="CAT_TIPO_FECHA" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Literatura" Association="SIDOCModel.Store.FK_T_Libro_Cat_Tipo_Literatura">
+            <End Role="CAT_TIPO_LITERATURA" EntitySet="CAT_TIPO_LITERATURA" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+            <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntitySet="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
+            <End Role="CAT_CIUDAD_EDITORIAL" EntitySet="CAT_CIUDAD_EDITORIAL" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+            <End Role="CAT_ESTADO" EntitySet="CAT_ESTADO" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+            <End Role="CAT_INFORMACION_DESCRIPTIVA" EntitySet="CAT_INFORMACION_DESCRIPTIVA" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+            <End Role="CAT_PERIOCIDAD" EntitySet="CAT_PERIOCIDAD" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_NIVE" Association="SIDOCModel.Store.FK_T_USUARI_FK_T_USUA_CAT_NIVE">
+            <End Role="CAT_NIVEL_EDUCATIVO" EntitySet="CAT_NIVEL_EDUCATIVO" />
+            <End Role="T_USUARIO" EntitySet="T_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_SEXO" Association="SIDOCModel.Store.FK_T_USUARI_FK_T_USUA_CAT_SEXO">
+            <End Role="CAT_SEXO" EntitySet="CAT_SEXO" />
+            <End Role="T_USUARIO" EntitySet="T_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_TIPO" Association="SIDOCModel.Store.FK_T_USUARI_FK_T_USUA_CAT_TIPO">
+            <End Role="CAT_TIPO_IDENTIFICACION" EntitySet="CAT_TIPO_IDENTIFICACION" />
+            <End Role="T_USUARIO" EntitySet="T_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_T_PERFIL" Association="SIDOCModel.Store.FK_T_USUARI_FK_T_USUA_T_PERFIL">
+            <End Role="T_PERFIL" EntitySet="T_PERFIL" />
+            <End Role="T_USUARIO" EntitySet="T_USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
+          <Key>
+            <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+          </Key>
+          <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_CIUDAD_EDITORIAL">
+          <Key>
+            <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+          </Key>
+          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="int" Nullable="false" />
+          <Property Name="FK_PAIS_EDITORIAL" Type="int" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_ESTADO">
+          <Key>
+            <PropertyRef Name="I_ID_ESTADO" />
+          </Key>
+          <Property Name="I_ID_ESTADO" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CAT_INFORMACION_DESCRIPTIVA">
+          <Key>
+            <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+          </Key>
+          <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_NIVEL_BIBLIOGRAFICO">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+          </Key>
+          <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_NIVEL_EDUCATIVO">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+          </Key>
+          <Property Name="I_ID_NIVEL_EDUCATIVO" Type="int" Nullable="false" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CAT_NIVEL_REGISTRO">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+          </Key>
+          <Property Name="I_ID_NIVEL_REGISTRO" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_PERIOCIDAD">
+          <Key>
+            <PropertyRef Name="I_ID_PERIOCIDAD" />
+          </Key>
+          <Property Name="I_ID_PERIOCIDAD" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_SEXO">
+          <Key>
+            <PropertyRef Name="I_ID_SEXO" />
+          </Key>
+          <Property Name="I_ID_SEXO" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CAT_TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="I_ID_TIPO_DOCUMENTO" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_TIPO_FECHA">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_FECHA" />
+          </Key>
+          <Property Name="I_ID_TIPO_FECHA" Type="int" Nullable="false" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CAT_TIPO_IDENTIFICACION">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+          </Key>
+          <Property Name="I_ID_TIPO_IDENTIFICACION" Type="int" Nullable="false" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CAT_TIPO_LITERATURA">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+          </Key>
+          <Property Name="I_ID_TIPO_LITERATURA" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_LIBRO">
+          <Key>
+            <PropertyRef Name="I_ID_LIBRO" />
+          </Key>
+          <Property Name="I_ID_LIBRO" Type="int" Nullable="false" />
+          <Property Name="FK_TIPO_FECHA" Type="int" />
+          <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="int" />
+          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="int" />
+          <Property Name="I_ID_ESTADO" Type="int" />
+          <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="int" />
+          <Property Name="I_ID_NIVEL_REGISTRO" Type="int" />
+          <Property Name="I_ID_PERIOCIDAD" Type="int" />
+          <Property Name="I_ID_TIPO_DOCUMENTO" Type="int" />
+          <Property Name="I_ID_TIPO_LITERATURA" Type="int" />
+          <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="int" />
+          <Property Name="VC_NUMERO_ACCESO" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_NUMERO_CLASIFICACION" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_PAGINA" Type="varchar" MaxLength="10" />
+          <Property Name="VC_NUMERO_VOLUMEN_MONOG" Type="varchar" MaxLength="100" />
+          <Property Name="VC_TITULO_COLEC" Type="varchar" MaxLength="500" />
+          <Property Name="VC_SUBTITULO_COLEC" Type="varchar" MaxLength="500" />
+          <Property Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" Type="varchar" MaxLength="100" />
+          <Property Name="VC_TITULO_MONOG" Type="varchar" MaxLength="500" />
+          <Property Name="VC_SUBTITULO_MONG" Type="varchar" MaxLength="500" />
+          <Property Name="VC_EDITOR_INSTITUCIONAL" Type="varchar" MaxLength="250" />
+          <Property Name="VC_TITULO_PUB_SER" Type="varchar" MaxLength="500" />
+          <Property Name="VC_SUBTITULO_PUB_SER" Type="varchar" MaxLength="500" />
+          <Property Name="VC_VOLUMEN_PUB_SER" Type="varchar" MaxLength="100" />
+          <Property Name="VC_NUMERO_PUB_SER" Type="varchar" MaxLength="100" />
+          <Property Name="VC_EXISTENCIAS_PUB_SER" Type="varchar" MaxLength="100" />
+          <Property Name="SI_NUMERO_EJEMPLARES" Type="smallint" />
+          <Property Name="DT_FECHA_PUBLICACION" Type="datetime" />
+          <Property Name="VC_EDICION" Type="varchar" MaxLength="100" />
+          <Property Name="VC_SIMBOLO" Type="varchar" MaxLength="100" />
+          <Property Name="VC_ISBN" Type="varchar" MaxLength="100" />
+          <Property Name="VC_GRADO_ACADEMICO" Type="varchar" MaxLength="100" />
+          <Property Name="VC_INSTITUCION_TESIS" Type="varchar" MaxLength="100" />
+          <Property Name="VC_NOTAS_PUB_SER" Type="varchar" MaxLength="500" />
+          <Property Name="VC_CATEGORIA_TEMATICA_PRIMARIA" Type="varchar" MaxLength="100" />
+          <Property Name="VC_PAISES_PRIMARIOS" Type="varchar" MaxLength="100" />
+          <Property Name="VC_DIVISION_ADMINISTRATIVA" Type="varchar" MaxLength="100" />
+          <Property Name="VC_RESUMEN" Type="varchar(max)" />
+          <Property Name="DT_ALCANCE_TEMPORAL" Type="datetime" />
+          <Property Name="VC_SIGLAS" Type="varchar" MaxLength="100" />
+          <Property Name="VC_DIRECCION_URL" Type="varchar" MaxLength="250" />
+          <Property Name="DT_FECHA_INGRESO_DOC" Type="datetime" />
+          <Property Name="VC_DOCUMENTALISTA" Type="varchar" MaxLength="100" />
+          <Property Name="TI_PRESTAMO_DISPONIBLE" Type="tinyint" />
+          <Property Name="VC_TABLA_CONTENIDO" Type="varchar" MaxLength="500" />
+          <Property Name="VC_TEXTO_COMPLETO" Type="varchar" MaxLength="500" />
+          <Property Name="VC_PORTADA" Type="varchar" MaxLength="500" />
+          <Property Name="VC_CODIGO_BARRA" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_PERFIL">
+          <Key>
+            <PropertyRef Name="I_ID_PERFIL" />
+          </Key>
+          <Property Name="I_ID_PERFIL" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="T_USUARIO">
+          <Key>
+            <PropertyRef Name="I_ID_USUARIO" />
+          </Key>
+          <Property Name="I_ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="I_ID_NIVEL_EDUCATIVO" Type="int" />
+          <Property Name="I_ID_SEXO" Type="int" />
+          <Property Name="I_ID_TIPO_IDENTIFICACION" Type="int" />
+          <Property Name="I_ID_PERFIL" Type="int" />
+          <Property Name="VC_IDENTIFICACION" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="VC_CONTRASENA" Type="varchar" MaxLength="16" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="VC_PRIMER_APELLIDO" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="VC_SEGUNDO_APELLIDO" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="VC_CORREO_ELECTRONICO" Type="varchar" MaxLength="50" />
+          <Property Name="VC_LUGAR_TRABAJO_ESTUDIO" Type="varchar" MaxLength="250" />
+          <Property Name="B_RECIBIR_NOVEDADES" Type="bit" />
+          <Property Name="FT_FECHA_CREACION" Type="datetime" />
+          <Property Name="VC_FIRMA_DIGITAL" Type="varchar" MaxLength="500" />
+          <Property Name="VC_NOMBRE_USUARIO" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_T_Libro_Cat_Nivel_Bibliografico">
+          <End Role="CAT_NIVEL_BIBLIOGRAFICO" Type="SIDOCModel.Store.CAT_NIVEL_BIBLIOGRAFICO" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_BIBLIOGRAFICO">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Nivel_Registro">
+          <End Role="CAT_NIVEL_REGISTRO" Type="SIDOCModel.Store.CAT_NIVEL_REGISTRO" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_REGISTRO">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Documento">
+          <End Role="CAT_TIPO_DOCUMENTO" Type="SIDOCModel.Store.CAT_TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_DOCUMENTO">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Fecha">
+          <End Role="CAT_TIPO_FECHA" Type="SIDOCModel.Store.CAT_TIPO_FECHA" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_FECHA">
+              <PropertyRef Name="I_ID_TIPO_FECHA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="FK_TIPO_FECHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Literatura">
+          <End Role="CAT_TIPO_LITERATURA" Type="SIDOCModel.Store.CAT_TIPO_LITERATURA" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_LITERATURA">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+          <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Type="SIDOCModel.Store.CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
+          <End Role="CAT_CIUDAD_EDITORIAL" Type="SIDOCModel.Store.CAT_CIUDAD_EDITORIAL" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_CIUDAD_EDITORIAL">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+          <End Role="CAT_ESTADO" Type="SIDOCModel.Store.CAT_ESTADO" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_ESTADO">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+          <End Role="CAT_INFORMACION_DESCRIPTIVA" Type="SIDOCModel.Store.CAT_INFORMACION_DESCRIPTIVA" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_INFORMACION_DESCRIPTIVA">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+          <End Role="CAT_PERIOCIDAD" Type="SIDOCModel.Store.CAT_PERIOCIDAD" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_PERIOCIDAD">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_NIVE">
+          <End Role="CAT_NIVEL_EDUCATIVO" Type="SIDOCModel.Store.CAT_NIVEL_EDUCATIVO" Multiplicity="0..1" />
+          <End Role="T_USUARIO" Type="SIDOCModel.Store.T_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_EDUCATIVO">
+              <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+            </Principal>
+            <Dependent Role="T_USUARIO">
+              <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_SEXO">
+          <End Role="CAT_SEXO" Type="SIDOCModel.Store.CAT_SEXO" Multiplicity="0..1" />
+          <End Role="T_USUARIO" Type="SIDOCModel.Store.T_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_SEXO">
+              <PropertyRef Name="I_ID_SEXO" />
+            </Principal>
+            <Dependent Role="T_USUARIO">
+              <PropertyRef Name="I_ID_SEXO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_TIPO">
+          <End Role="CAT_TIPO_IDENTIFICACION" Type="SIDOCModel.Store.CAT_TIPO_IDENTIFICACION" Multiplicity="0..1" />
+          <End Role="T_USUARIO" Type="SIDOCModel.Store.T_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_IDENTIFICACION">
+              <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+            </Principal>
+            <Dependent Role="T_USUARIO">
+              <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_T_PERFIL">
+          <End Role="T_PERFIL" Type="SIDOCModel.Store.T_PERFIL" Multiplicity="0..1" />
+          <End Role="T_USUARIO" Type="SIDOCModel.Store.T_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PERFIL">
+              <PropertyRef Name="I_ID_PERFIL" />
+            </Principal>
+            <Dependent Role="T_USUARIO">
+              <PropertyRef Name="I_ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SIDOCModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SIDOCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TematicaGeograficas" EntityType="SIDOCModel.TematicaGeografica" />
+          <EntitySet Name="CiudadEditorials" EntityType="SIDOCModel.CiudadEditorial" />
+          <EntitySet Name="Estadoes" EntityType="SIDOCModel.Estado" />
+          <EntitySet Name="InformacionDescriptivas" EntityType="SIDOCModel.InformacionDescriptiva" />
+          <EntitySet Name="NivelBibliograficoes" EntityType="SIDOCModel.NivelBibliografico" />
+          <EntitySet Name="NivelDeRegistroes" EntityType="SIDOCModel.NivelDeRegistro" />
+          <EntitySet Name="Periocidads" EntityType="SIDOCModel.Periocidad" />
+          <EntitySet Name="Documentoes" EntityType="SIDOCModel.Documento" />
+          <EntitySet Name="TipoDeFechas" EntityType="SIDOCModel.TipoDeFecha" />
+          <EntitySet Name="TipoDeLiteraturas" EntityType="SIDOCModel.TipoDeLiteratura" />
+          <EntitySet Name="Libros" EntityType="SIDOCModel.Libro" />
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+            <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntitySet="TematicaGeograficas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
+            <End Role="CAT_CIUDAD_EDITORIAL" EntitySet="CiudadEditorials" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+            <End Role="CAT_ESTADO" EntitySet="Estadoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+            <End Role="CAT_INFORMACION_DESCRIPTIVA" EntitySet="InformacionDescriptivas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Bibliografico" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico">
+            <End Role="CAT_NIVEL_BIBLIOGRAFICO" EntitySet="NivelBibliograficoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Registro" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro">
+            <End Role="CAT_NIVEL_REGISTRO" EntitySet="NivelDeRegistroes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+            <End Role="CAT_PERIOCIDAD" EntitySet="Periocidads" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Documento" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento">
+            <End Role="CAT_TIPO_DOCUMENTO" EntitySet="Documentoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Fecha" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha">
+            <End Role="CAT_TIPO_FECHA" EntitySet="TipoDeFechas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Literatura" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura">
+            <End Role="CAT_TIPO_LITERATURA" EntitySet="TipoDeLiteraturas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="SIDOCModel.Usuario" />
+          <EntitySet Name="NivelEducativoes" EntityType="SIDOCModel.NivelEducativo" />
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_NIVE" Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_NIVE">
+            <End Role="CAT_NIVEL_EDUCATIVO" EntitySet="NivelEducativoes" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Generoes" EntityType="SIDOCModel.Genero" />
+          <EntitySet Name="TipoDeIdentificacions" EntityType="SIDOCModel.TipoDeIdentificacion" />
+          <EntitySet Name="Perfils" EntityType="SIDOCModel.Perfil" />
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_SEXO" Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_SEXO">
+            <End Role="CAT_SEXO" EntitySet="Generoes" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_TIPO" Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_TIPO">
+            <End Role="CAT_TIPO_IDENTIFICACION" EntitySet="TipoDeIdentificacions" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_USUARI_FK_T_USUA_T_PERFIL" Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_T_PERFIL">
+            <End Role="T_PERFIL" EntitySet="Perfils" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TematicaGeografica">
+          <Key>
+            <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+          </Key>
+          <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="CiudadEditorial">
+          <Key>
+            <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+          </Key>
+          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="Int32" Nullable="false" />
+          <Property Name="FK_PAIS_EDITORIAL" Type="Int32" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" FromRole="CAT_CIUDAD_EDITORIAL" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="I_ID_ESTADO" />
+          </Key>
+          <Property Name="I_ID_ESTADO" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="CAT_ESTADO" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="InformacionDescriptiva">
+          <Key>
+            <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+          </Key>
+          <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="CAT_INFORMACION_DESCRIPTIVA" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="NivelBibliografico">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+          </Key>
+          <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="CAT_NIVEL_BIBLIOGRAFICO" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="NivelDeRegistro">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+          </Key>
+          <Property Name="I_ID_NIVEL_REGISTRO" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="CAT_NIVEL_REGISTRO" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="Periocidad">
+          <Key>
+            <PropertyRef Name="I_ID_PERIOCIDAD" />
+          </Key>
+          <Property Name="I_ID_PERIOCIDAD" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="CAT_PERIOCIDAD" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="I_ID_TIPO_DOCUMENTO" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="CAT_TIPO_DOCUMENTO" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="TipoDeFecha">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_FECHA" />
+          </Key>
+          <Property Name="I_ID_TIPO_FECHA" Type="Int32" Nullable="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="CAT_TIPO_FECHA" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="TipoDeLiteratura">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+          </Key>
+          <Property Name="I_ID_TIPO_LITERATURA" Type="Int32" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="CAT_TIPO_LITERATURA" ToRole="T_LIBRO" />
+        </EntityType>
+        <EntityType Name="Libro">
+          <Documentation>
+            <Summary>T_LIBRO</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="I_ID_LIBRO" />
+          </Key>
+          <Property Name="I_ID_LIBRO" Type="Int32" Nullable="false" />
+          <Property Name="FK_TIPO_FECHA" Type="Int32" />
+          <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="Int32" />
+          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="Int32" />
+          <Property Name="I_ID_ESTADO" Type="Int32" />
+          <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="Int32" />
+          <Property Name="I_ID_NIVEL_REGISTRO" Type="Int32" />
+          <Property Name="I_ID_PERIOCIDAD" Type="Int32" />
+          <Property Name="I_ID_TIPO_DOCUMENTO" Type="Int32" />
+          <Property Name="I_ID_TIPO_LITERATURA" Type="Int32" />
+          <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="Int32" />
+          <Property Name="VC_NUMERO_ACCESO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NUMERO_CLASIFICACION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_PAGINA" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NUMERO_VOLUMEN_MONOG" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_TITULO_COLEC" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_SUBTITULO_COLEC" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_TITULO_MONOG" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_SUBTITULO_MONG" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_EDITOR_INSTITUCIONAL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="VC_TITULO_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_SUBTITULO_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_VOLUMEN_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NUMERO_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_EXISTENCIAS_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="SI_NUMERO_EJEMPLARES" Type="Int16" />
+          <Property Name="DT_FECHA_PUBLICACION" Type="DateTime" Precision="3" />
+          <Property Name="VC_SIMBOLO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_ISBN" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_GRADO_ACADEMICO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_INSTITUCION_TESIS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_NOTAS_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_CATEGORIA_TEMATICA_PRIMARIA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_PAISES_PRIMARIOS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DIVISION_ADMINISTRATIVA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_RESUMEN" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DT_ALCANCE_TEMPORAL" Type="DateTime" Precision="3" />
+          <Property Name="VC_SIGLAS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VC_DIRECCION_URL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="DT_FECHA_INGRESO_DOC" Type="DateTime" Precision="3" />
+          <Property Name="VC_DOCUMENTALISTA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TI_PRESTAMO_DISPONIBLE" Type="Byte" />
+          <Property Name="VC_TABLA_CONTENIDO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_TEXTO_COMPLETO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_PORTADA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="VC_CODIGO_BARRA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="T_LIBRO" ToRole="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" />
+          <NavigationProperty Name="CAT_CIUDAD_EDITORIAL" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" FromRole="T_LIBRO" ToRole="CAT_CIUDAD_EDITORIAL" />
+          <NavigationProperty Name="CAT_ESTADO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="T_LIBRO" ToRole="CAT_ESTADO" />
+          <NavigationProperty Name="CAT_INFORMACION_DESCRIPTIVA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="T_LIBRO" ToRole="CAT_INFORMACION_DESCRIPTIVA" />
+          <NavigationProperty Name="CAT_NIVEL_BIBLIOGRAFICO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="T_LIBRO" ToRole="CAT_NIVEL_BIBLIOGRAFICO" />
+          <NavigationProperty Name="CAT_NIVEL_REGISTRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="T_LIBRO" ToRole="CAT_NIVEL_REGISTRO" />
+          <NavigationProperty Name="CAT_PERIOCIDAD" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="T_LIBRO" ToRole="CAT_PERIOCIDAD" />
+          <NavigationProperty Name="CAT_TIPO_DOCUMENTO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="T_LIBRO" ToRole="CAT_TIPO_DOCUMENTO" />
+          <NavigationProperty Name="CAT_TIPO_FECHA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="T_LIBRO" ToRole="CAT_TIPO_FECHA" />
+          <NavigationProperty Name="CAT_TIPO_LITERATURA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="T_LIBRO" ToRole="CAT_TIPO_LITERATURA" />
+          </EntityType>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+          <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Type="SIDOCModel.TematicaGeografica" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
+          <End Role="CAT_CIUDAD_EDITORIAL" Type="SIDOCModel.CiudadEditorial" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_CIUDAD_EDITORIAL">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+          <End Role="CAT_ESTADO" Type="SIDOCModel.Estado" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_ESTADO">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+          <End Role="CAT_INFORMACION_DESCRIPTIVA" Type="SIDOCModel.InformacionDescriptiva" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_INFORMACION_DESCRIPTIVA">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Nivel_Bibliografico">
+          <End Role="CAT_NIVEL_BIBLIOGRAFICO" Type="SIDOCModel.NivelBibliografico" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_BIBLIOGRAFICO">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Nivel_Registro">
+          <End Role="CAT_NIVEL_REGISTRO" Type="SIDOCModel.NivelDeRegistro" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_REGISTRO">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+          <End Role="CAT_PERIOCIDAD" Type="SIDOCModel.Periocidad" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_PERIOCIDAD">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Documento">
+          <End Role="CAT_TIPO_DOCUMENTO" Type="SIDOCModel.Documento" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_DOCUMENTO">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Fecha">
+          <End Role="CAT_TIPO_FECHA" Type="SIDOCModel.TipoDeFecha" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_FECHA">
+              <PropertyRef Name="I_ID_TIPO_FECHA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="FK_TIPO_FECHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Literatura">
+          <End Role="CAT_TIPO_LITERATURA" Type="SIDOCModel.TipoDeLiteratura" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_LITERATURA">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="I_ID_USUARIO" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_USUARIO" Nullable="false" />
+          <Property Type="Int32" Name="I_ID_NIVEL_EDUCATIVO" />
+          <Property Type="Int32" Name="I_ID_SEXO" />
+          <Property Type="Int32" Name="I_ID_TIPO_IDENTIFICACION" />
+          <Property Type="Int32" Name="I_ID_PERFIL" />
+          <Property Type="String" Name="VC_IDENTIFICACION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_CONTRASENA" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_PRIMER_APELLIDO" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_SEGUNDO_APELLIDO" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_CORREO_ELECTRONICO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_LUGAR_TRABAJO_ESTUDIO" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="B_RECIBIR_NOVEDADES" />
+          <Property Type="DateTime" Name="FT_FECHA_CREACION" Precision="3" />
+          <Property Type="String" Name="VC_FIRMA_DIGITAL" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NOMBRE_USUARIO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CAT_NIVEL_EDUCATIVO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_NIVE" FromRole="Usuario" ToRole="CAT_NIVEL_EDUCATIVO" />
+          <NavigationProperty Name="CAT_SEXO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_SEXO" FromRole="Usuario" ToRole="CAT_SEXO" />
+          <NavigationProperty Name="CAT_TIPO_IDENTIFICACION" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_TIPO" FromRole="Usuario" ToRole="CAT_TIPO_IDENTIFICACION" />
+          <NavigationProperty Name="T_PERFIL" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_T_PERFIL" FromRole="Usuario" ToRole="T_PERFIL" />
+        </EntityType>
+        <EntityType Name="NivelEducativo">
+          <Key>
+            <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_NIVEL_EDUCATIVO" Nullable="false" />
+          <Property Type="String" Name="VC_DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_USUARIO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_NIVE" FromRole="CAT_NIVEL_EDUCATIVO" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_NIVE">
+          <End Type="SIDOCModel.NivelEducativo" Role="CAT_NIVEL_EDUCATIVO" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NIVEL_EDUCATIVO">
+              <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="I_ID_NIVEL_EDUCATIVO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Genero">
+          <Key>
+            <PropertyRef Name="I_ID_SEXO" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_SEXO" Nullable="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_USUARIO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_SEXO" FromRole="CAT_SEXO" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoDeIdentificacion">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_TIPO_IDENTIFICACION" Nullable="false" />
+          <Property Type="String" Name="VC_DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_USUARIO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_TIPO" FromRole="CAT_TIPO_IDENTIFICACION" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="I_ID_PERFIL" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_PERFIL" Nullable="false" />
+          <Property Type="String" Name="VC_NOMBRE" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_DESCRIPCION" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_USUARIO" Relationship="SIDOCModel.FK_T_USUARI_FK_T_USUA_T_PERFIL" FromRole="T_PERFIL" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_SEXO">
+          <End Type="SIDOCModel.Genero" Role="CAT_SEXO" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_SEXO">
+              <PropertyRef Name="I_ID_SEXO" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="I_ID_SEXO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_CAT_TIPO">
+          <End Type="SIDOCModel.TipoDeIdentificacion" Role="CAT_TIPO_IDENTIFICACION" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_IDENTIFICACION">
+              <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="I_ID_TIPO_IDENTIFICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_USUARI_FK_T_USUA_T_PERFIL">
+          <End Type="SIDOCModel.Perfil" Role="T_PERFIL" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PERFIL">
+              <PropertyRef Name="I_ID_PERFIL" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="I_ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SIDOCModelStoreContainer" CdmEntityContainer="SIDOCEntities">
+          <EntitySetMapping Name="TematicaGeograficas">
+            <EntityTypeMapping TypeName="SIDOCModel.TematicaGeografica">
+              <MappingFragment StoreEntitySet="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
+                <ScalarProperty Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" ColumnName="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiudadEditorials">
+            <EntityTypeMapping TypeName="SIDOCModel.CiudadEditorial">
+              <MappingFragment StoreEntitySet="CAT_CIUDAD_EDITORIAL">
+                <ScalarProperty Name="I_ID_CIUDAD_EDITORIAL" ColumnName="I_ID_CIUDAD_EDITORIAL" />
+                <ScalarProperty Name="FK_PAIS_EDITORIAL" ColumnName="FK_PAIS_EDITORIAL" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estadoes">
+            <EntityTypeMapping TypeName="SIDOCModel.Estado">
+              <MappingFragment StoreEntitySet="CAT_ESTADO">
+                <ScalarProperty Name="I_ID_ESTADO" ColumnName="I_ID_ESTADO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformacionDescriptivas">
+            <EntityTypeMapping TypeName="SIDOCModel.InformacionDescriptiva">
+              <MappingFragment StoreEntitySet="CAT_INFORMACION_DESCRIPTIVA">
+                <ScalarProperty Name="I_ID_INFORMACION_DESCRIPTIVA" ColumnName="I_ID_INFORMACION_DESCRIPTIVA" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NivelBibliograficoes">
+            <EntityTypeMapping TypeName="SIDOCModel.NivelBibliografico">
+              <MappingFragment StoreEntitySet="CAT_NIVEL_BIBLIOGRAFICO">
+                <ScalarProperty Name="I_ID_NIVEL_BIBLIOGRAFICO" ColumnName="I_ID_NIVEL_BIBLIOGRAFICO" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NivelDeRegistroes">
+            <EntityTypeMapping TypeName="SIDOCModel.NivelDeRegistro">
+              <MappingFragment StoreEntitySet="CAT_NIVEL_REGISTRO">
+                <ScalarProperty Name="I_ID_NIVEL_REGISTRO" ColumnName="I_ID_NIVEL_REGISTRO" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periocidads">
+            <EntityTypeMapping TypeName="SIDOCModel.Periocidad">
+              <MappingFragment StoreEntitySet="CAT_PERIOCIDAD">
+                <ScalarProperty Name="I_ID_PERIOCIDAD" ColumnName="I_ID_PERIOCIDAD" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentoes">
+            <EntityTypeMapping TypeName="SIDOCModel.Documento">
+              <MappingFragment StoreEntitySet="CAT_TIPO_DOCUMENTO">
+                <ScalarProperty Name="I_ID_TIPO_DOCUMENTO" ColumnName="I_ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeFechas">
+            <EntityTypeMapping TypeName="SIDOCModel.TipoDeFecha">
+              <MappingFragment StoreEntitySet="CAT_TIPO_FECHA">
+                <ScalarProperty Name="I_ID_TIPO_FECHA" ColumnName="I_ID_TIPO_FECHA" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeLiteraturas">
+            <EntityTypeMapping TypeName="SIDOCModel.TipoDeLiteratura">
+              <MappingFragment StoreEntitySet="CAT_TIPO_LITERATURA">
+                <ScalarProperty Name="I_ID_TIPO_LITERATURA" ColumnName="I_ID_TIPO_LITERATURA" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libros">
+            <EntityTypeMapping TypeName="SIDOCModel.Libro">
+              <MappingFragment StoreEntitySet="T_LIBRO">
+                <ScalarProperty Name="I_ID_LIBRO" ColumnName="I_ID_LIBRO" />
+                <ScalarProperty Name="FK_TIPO_FECHA" ColumnName="FK_TIPO_FECHA" />
+                <ScalarProperty Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" ColumnName="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+                <ScalarProperty Name="I_ID_CIUDAD_EDITORIAL" ColumnName="I_ID_CIUDAD_EDITORIAL" />
+                <ScalarProperty Name="I_ID_ESTADO" ColumnName="I_ID_ESTADO" />
+                <ScalarProperty Name="I_ID_NIVEL_BIBLIOGRAFICO" ColumnName="I_ID_NIVEL_BIBLIOGRAFICO" />
+                <ScalarProperty Name="I_ID_NIVEL_REGISTRO" ColumnName="I_ID_NIVEL_REGISTRO" />
+                <ScalarProperty Name="I_ID_PERIOCIDAD" ColumnName="I_ID_PERIOCIDAD" />
+                <ScalarProperty Name="I_ID_TIPO_DOCUMENTO" ColumnName="I_ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="I_ID_TIPO_LITERATURA" ColumnName="I_ID_TIPO_LITERATURA" />
+                <ScalarProperty Name="I_ID_INFORMACION_DESCRIPTIVA" ColumnName="I_ID_INFORMACION_DESCRIPTIVA" />
+                <ScalarProperty Name="VC_NUMERO_ACCESO" ColumnName="VC_NUMERO_ACCESO" />
+                <ScalarProperty Name="VC_NUMERO_CLASIFICACION" ColumnName="VC_NUMERO_CLASIFICACION" />
+                <ScalarProperty Name="VC_PAGINA" ColumnName="VC_PAGINA" />
+                <ScalarProperty Name="VC_NUMERO_VOLUMEN_MONOG" ColumnName="VC_NUMERO_VOLUMEN_MONOG" />
+                <ScalarProperty Name="VC_TITULO_COLEC" ColumnName="VC_TITULO_COLEC" />
+                <ScalarProperty Name="VC_SUBTITULO_COLEC" ColumnName="VC_SUBTITULO_COLEC" />
+                <ScalarProperty Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" ColumnName="VC_NUMERO_TOTAL_VOLUMEN_COLEC" />
+                <ScalarProperty Name="VC_TITULO_MONOG" ColumnName="VC_TITULO_MONOG" />
+                <ScalarProperty Name="VC_SUBTITULO_MONG" ColumnName="VC_SUBTITULO_MONG" />
+                <ScalarProperty Name="VC_EDITOR_INSTITUCIONAL" ColumnName="VC_EDITOR_INSTITUCIONAL" />
+                <ScalarProperty Name="VC_TITULO_PUB_SER" ColumnName="VC_TITULO_PUB_SER" />
+                <ScalarProperty Name="VC_SUBTITULO_PUB_SER" ColumnName="VC_SUBTITULO_PUB_SER" />
+                <ScalarProperty Name="VC_VOLUMEN_PUB_SER" ColumnName="VC_VOLUMEN_PUB_SER" />
+                <ScalarProperty Name="VC_NUMERO_PUB_SER" ColumnName="VC_NUMERO_PUB_SER" />
+                <ScalarProperty Name="VC_EXISTENCIAS_PUB_SER" ColumnName="VC_EXISTENCIAS_PUB_SER" />
+                <ScalarProperty Name="SI_NUMERO_EJEMPLARES" ColumnName="SI_NUMERO_EJEMPLARES" />
+                <ScalarProperty Name="DT_FECHA_PUBLICACION" ColumnName="DT_FECHA_PUBLICACION" />
+                <ScalarProperty Name="VC_SIMBOLO" ColumnName="VC_SIMBOLO" />
+                <ScalarProperty Name="VC_ISBN" ColumnName="VC_ISBN" />
+                <ScalarProperty Name="VC_GRADO_ACADEMICO" ColumnName="VC_GRADO_ACADEMICO" />
+                <ScalarProperty Name="VC_INSTITUCION_TESIS" ColumnName="VC_INSTITUCION_TESIS" />
+                <ScalarProperty Name="VC_NOTAS_PUB_SER" ColumnName="VC_NOTAS_PUB_SER" />
+                <ScalarProperty Name="VC_CATEGORIA_TEMATICA_PRIMARIA" ColumnName="VC_CATEGORIA_TEMATICA_PRIMARIA" />
+                <ScalarProperty Name="VC_PAISES_PRIMARIOS" ColumnName="VC_PAISES_PRIMARIOS" />
+                <ScalarProperty Name="VC_DIVISION_ADMINISTRATIVA" ColumnName="VC_DIVISION_ADMINISTRATIVA" />
+                <ScalarProperty Name="VC_RESUMEN" ColumnName="VC_RESUMEN" />
+                <ScalarProperty Name="DT_ALCANCE_TEMPORAL" ColumnName="DT_ALCANCE_TEMPORAL" />
+                <ScalarProperty Name="VC_SIGLAS" ColumnName="VC_SIGLAS" />
+                <ScalarProperty Name="VC_DIRECCION_URL" ColumnName="VC_DIRECCION_URL" />
+                <ScalarProperty Name="DT_FECHA_INGRESO_DOC" ColumnName="DT_FECHA_INGRESO_DOC" />
+                <ScalarProperty Name="VC_DOCUMENTALISTA" ColumnName="VC_DOCUMENTALISTA" />
+                <ScalarProperty Name="TI_PRESTAMO_DISPONIBLE" ColumnName="TI_PRESTAMO_DISPONIBLE" />
+                <ScalarProperty Name="VC_TABLA_CONTENIDO" ColumnName="VC_TABLA_CONTENIDO" />
+                <ScalarProperty Name="VC_TEXTO_COMPLETO" ColumnName="VC_TEXTO_COMPLETO" />
+                <ScalarProperty Name="VC_PORTADA" ColumnName="VC_PORTADA" />
+                <ScalarProperty Name="VC_CODIGO_BARRA" ColumnName="VC_CODIGO_BARRA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SIDOCModel.Usuario">
+              <MappingFragment StoreEntitySet="T_USUARIO">
+                <ScalarProperty Name="VC_NOMBRE_USUARIO" ColumnName="VC_NOMBRE_USUARIO" />
+                <ScalarProperty Name="VC_FIRMA_DIGITAL" ColumnName="VC_FIRMA_DIGITAL" />
+                <ScalarProperty Name="FT_FECHA_CREACION" ColumnName="FT_FECHA_CREACION" />
+                <ScalarProperty Name="B_RECIBIR_NOVEDADES" ColumnName="B_RECIBIR_NOVEDADES" />
+                <ScalarProperty Name="VC_LUGAR_TRABAJO_ESTUDIO" ColumnName="VC_LUGAR_TRABAJO_ESTUDIO" />
+                <ScalarProperty Name="VC_CORREO_ELECTRONICO" ColumnName="VC_CORREO_ELECTRONICO" />
+                <ScalarProperty Name="VC_SEGUNDO_APELLIDO" ColumnName="VC_SEGUNDO_APELLIDO" />
+                <ScalarProperty Name="VC_PRIMER_APELLIDO" ColumnName="VC_PRIMER_APELLIDO" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="VC_CONTRASENA" ColumnName="VC_CONTRASENA" />
+                <ScalarProperty Name="VC_IDENTIFICACION" ColumnName="VC_IDENTIFICACION" />
+                <ScalarProperty Name="I_ID_PERFIL" ColumnName="I_ID_PERFIL" />
+                <ScalarProperty Name="I_ID_TIPO_IDENTIFICACION" ColumnName="I_ID_TIPO_IDENTIFICACION" />
+                <ScalarProperty Name="I_ID_SEXO" ColumnName="I_ID_SEXO" />
+                <ScalarProperty Name="I_ID_NIVEL_EDUCATIVO" ColumnName="I_ID_NIVEL_EDUCATIVO" />
+                <ScalarProperty Name="I_ID_USUARIO" ColumnName="I_ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NivelEducativoes">
+            <EntityTypeMapping TypeName="SIDOCModel.NivelEducativo">
+              <MappingFragment StoreEntitySet="CAT_NIVEL_EDUCATIVO">
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+                <ScalarProperty Name="I_ID_NIVEL_EDUCATIVO" ColumnName="I_ID_NIVEL_EDUCATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Generoes">
+            <EntityTypeMapping TypeName="SIDOCModel.Genero">
+              <MappingFragment StoreEntitySet="CAT_SEXO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="I_ID_SEXO" ColumnName="I_ID_SEXO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeIdentificacions">
+            <EntityTypeMapping TypeName="SIDOCModel.TipoDeIdentificacion">
+              <MappingFragment StoreEntitySet="CAT_TIPO_IDENTIFICACION">
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+                <ScalarProperty Name="I_ID_TIPO_IDENTIFICACION" ColumnName="I_ID_TIPO_IDENTIFICACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfils">
+            <EntityTypeMapping TypeName="SIDOCModel.Perfil">
+              <MappingFragment StoreEntitySet="T_PERFIL">
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="I_ID_PERFIL" ColumnName="I_ID_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
