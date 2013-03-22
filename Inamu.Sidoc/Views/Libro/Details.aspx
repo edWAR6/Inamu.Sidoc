@@ -19,73 +19,66 @@
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_TIPO_FECHA.VC_DESCRIPCION) %>
+        <%: Html.DisplayNameFor(model => model.FK_TIPO_FECHA) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_TIPO_FECHA.VC_DESCRIPCION) %>
+        <%: Html.DisplayFor(model => model.FK_TIPO_FECHA) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_CATEGORIA_TEMATICA_GEOGRAFICA.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_CATEGORIA_TEMATICA_GEOGRAFICA.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_CIUDAD_EDITORIAL.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_ESTADO) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_CIUDAD_EDITORIAL.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_ESTADO) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_ESTADO.DESCRIPCION) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_ESTADO.DESCRIPCION) %>
+        <%: Html.DisplayFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_NIVEL_BIBLIOGRAFICO.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_NIVEL_REGISTRO) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_NIVEL_BIBLIOGRAFICO.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_NIVEL_REGISTRO) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_NIVEL_REGISTRO.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_PERIOCIDAD) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_NIVEL_REGISTRO.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_PERIOCIDAD) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_PERIOCIDAD.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_TIPO_DOCUMENTO) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_PERIOCIDAD.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_TIPO_DOCUMENTO) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_TIPO_DOCUMENTO.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_TIPO_LITERATURA) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_TIPO_DOCUMENTO.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_TIPO_LITERATURA) %>
     </div>
 
     <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_TIPO_LITERATURA.VC_NOMBRE) %>
+        <%: Html.DisplayNameFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
     </div>
     <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_TIPO_LITERATURA.VC_NOMBRE) %>
-    </div>
-
-    <div class="display-label">
-        <%: Html.DisplayNameFor(model => model.CAT_INFORMACION_DESCRIPTIVA.VC_NOMBRE) %>
-    </div>
-    <div class="display-field">
-        <%: Html.DisplayFor(model => model.CAT_INFORMACION_DESCRIPTIVA.VC_NOMBRE) %>
+        <%: Html.DisplayFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
     </div>
 
     <div class="display-label">
@@ -338,6 +331,13 @@
     </div>
     <div class="display-field">
         <%: Html.DisplayFor(model => model.VC_CODIGO_BARRA) %>
+    </div>
+
+    <div class="display-label">
+        <%: Html.DisplayNameFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
+    </div>
+    <div class="display-field">
+        <%: Html.DisplayFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
     </div>
 </fieldset>
 <p>

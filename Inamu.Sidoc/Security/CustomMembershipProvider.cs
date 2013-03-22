@@ -19,5 +19,14 @@ namespace Inamu.Sidoc.Security
             SIDOCEntities context = new SIDOCEntities();
             return context.Usuarios.Any(u => (u.VC_NOMBRE_USUARIO == username.Trim()) && (u.VC_CONTRASENA == password.Trim()));
         }
+
+        public override bool ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            SIDOCEntities context = new SIDOCEntities();
+            Usuario user = context.Usuarios.Single(u => (u.VC_NOMBRE_USUARIO == username));
+            user.VC_CONTRASENA = newPassword;
+            context.SaveChanges();
+            return base.ChangePassword(username, oldPassword, newPassword);
+        }
     }
 }

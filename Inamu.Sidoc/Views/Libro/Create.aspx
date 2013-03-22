@@ -23,82 +23,74 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.FK_TIPO_FECHA, "CAT_TIPO_FECHA") %>
+            <%: Html.LabelFor(model => model.FK_TIPO_FECHA) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("FK_TIPO_FECHA", String.Empty) %>
+            <%: Html.EditorFor(model => model.FK_TIPO_FECHA) %>
             <%: Html.ValidationMessageFor(model => model.FK_TIPO_FECHA) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA, "CAT_CATEGORIA_TEMATICA_GEOGRAFICA") %>
+            <%: Html.LabelFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_CATEGORIA_TEMATICA_GEOGRAFICA", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_CIUDAD_EDITORIAL, "CAT_CIUDAD_EDITORIAL") %>
+            <%: Html.LabelFor(model => model.I_ID_ESTADO) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_CIUDAD_EDITORIAL", String.Empty) %>
-            <%: Html.ValidationMessageFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_ESTADO, "CAT_ESTADO") %>
-        </div>
-        <div class="editor-field">
-            <%: Html.DropDownList("I_ID_ESTADO", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_ESTADO) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_ESTADO) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO, "CAT_NIVEL_BIBLIOGRAFICO") %>
+            <%: Html.LabelFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_NIVEL_BIBLIOGRAFICO", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_NIVEL_REGISTRO, "CAT_NIVEL_REGISTRO") %>
+            <%: Html.LabelFor(model => model.I_ID_NIVEL_REGISTRO) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_NIVEL_REGISTRO", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_NIVEL_REGISTRO) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_NIVEL_REGISTRO) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_PERIOCIDAD, "CAT_PERIOCIDAD") %>
+            <%: Html.LabelFor(model => model.I_ID_PERIOCIDAD) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_PERIOCIDAD", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_PERIOCIDAD) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_PERIOCIDAD) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_TIPO_DOCUMENTO, "CAT_TIPO_DOCUMENTO") %>
+            <%: Html.LabelFor(model => model.I_ID_TIPO_DOCUMENTO) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_TIPO_DOCUMENTO", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_TIPO_DOCUMENTO) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_TIPO_DOCUMENTO) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_TIPO_LITERATURA, "CAT_TIPO_LITERATURA") %>
+            <%: Html.LabelFor(model => model.I_ID_TIPO_LITERATURA) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_TIPO_LITERATURA", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_TIPO_LITERATURA) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_TIPO_LITERATURA) %>
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.I_ID_INFORMACION_DESCRIPTIVA, "CAT_INFORMACION_DESCRIPTIVA") %>
+            <%: Html.LabelFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("I_ID_INFORMACION_DESCRIPTIVA", String.Empty) %>
+            <%: Html.EditorFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
             <%: Html.ValidationMessageFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
         </div>
 
@@ -388,6 +380,14 @@
         <div class="editor-field">
             <%: Html.EditorFor(model => model.VC_CODIGO_BARRA) %>
             <%: Html.ValidationMessageFor(model => model.VC_CODIGO_BARRA) %>
+        </div>
+
+        <div class="editor-label">
+            <%: Html.LabelFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
+        </div>
+        <div class="editor-field">
+            <%: Html.EditorFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
+            <%: Html.ValidationMessageFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
         </div>
 
         <p>

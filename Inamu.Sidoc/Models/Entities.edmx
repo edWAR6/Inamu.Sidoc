@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="SIDOCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SIDOCModelStoreContainer">
+          <EntitySet Name="CAT_AUTORIA" EntityType="SIDOCModel.Store.CAT_AUTORIA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntityType="SIDOCModel.Store.CAT_CATEGORIA_TEMATICA_GEOGRAFICA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_CIUDAD_EDITORIAL" EntityType="SIDOCModel.Store.CAT_CIUDAD_EDITORIAL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_ESTADO" EntityType="SIDOCModel.Store.CAT_ESTADO" store:Type="Tables" Schema="dbo" />
@@ -15,13 +16,31 @@
           <EntitySet Name="CAT_NIVEL_REGISTRO" EntityType="SIDOCModel.Store.CAT_NIVEL_REGISTRO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_PERIOCIDAD" EntityType="SIDOCModel.Store.CAT_PERIOCIDAD" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_SEXO" EntityType="SIDOCModel.Store.CAT_SEXO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_TIPO_AUTORIA" EntityType="SIDOCModel.Store.CAT_TIPO_AUTORIA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_TIPO_DOCUMENTO" EntityType="SIDOCModel.Store.CAT_TIPO_DOCUMENTO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_TIPO_FECHA" EntityType="SIDOCModel.Store.CAT_TIPO_FECHA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_TIPO_IDENTIFICACION" EntityType="SIDOCModel.Store.CAT_TIPO_IDENTIFICACION" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_TIPO_LITERATURA" EntityType="SIDOCModel.Store.CAT_TIPO_LITERATURA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_LIBRO" EntityType="SIDOCModel.Store.T_LIBRO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_LIBRO_AUTORIA" EntityType="SIDOCModel.Store.T_LIBRO_AUTORIA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_PERFIL" EntityType="SIDOCModel.Store.T_PERFIL" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_USUARIO" EntityType="SIDOCModel.Store.T_USUARIO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_LIBRO__FK_T_LIBR_CAT_AUTO" Association="SIDOCModel.Store.FK_T_LIBRO__FK_T_LIBR_CAT_AUTO">
+            <End Role="CAT_AUTORIA" EntitySet="CAT_AUTORIA" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="T_LIBRO_AUTORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO__FK_T_LIBR_CAT_TIPO" Association="SIDOCModel.Store.FK_T_LIBRO__FK_T_LIBR_CAT_TIPO">
+            <End Role="CAT_TIPO_AUTORIA" EntitySet="CAT_TIPO_AUTORIA" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="T_LIBRO_AUTORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Autoria_T_Libro" Association="SIDOCModel.Store.FK_T_Libro_Autoria_T_Libro">
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="T_LIBRO_AUTORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_CAT_CIUDAD_EDITORIAL" Association="SIDOCModel.Store.FK_T_LIBRO_CAT_CIUDAD_EDITORIAL">
+            <End Role="CAT_CIUDAD_EDITORIAL" EntitySet="CAT_CIUDAD_EDITORIAL" />
+            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_Libro_Cat_Nivel_Bibliografico" Association="SIDOCModel.Store.FK_T_Libro_Cat_Nivel_Bibliografico">
             <End Role="CAT_NIVEL_BIBLIOGRAFICO" EntitySet="CAT_NIVEL_BIBLIOGRAFICO" />
             <End Role="T_LIBRO" EntitySet="T_LIBRO" />
@@ -44,10 +63,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
             <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntitySet="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" />
-            <End Role="T_LIBRO" EntitySet="T_LIBRO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
-            <End Role="CAT_CIUDAD_EDITORIAL" EntitySet="CAT_CIUDAD_EDITORIAL" />
             <End Role="T_LIBRO" EntitySet="T_LIBRO" />
           </AssociationSet>
           <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" Association="SIDOCModel.Store.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
@@ -79,6 +94,14 @@
             <End Role="T_USUARIO" EntitySet="T_USUARIO" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CAT_AUTORIA">
+          <Key>
+            <PropertyRef Name="I_ID_AUTORIA" />
+          </Key>
+          <Property Name="I_ID_AUTORIA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VC_NOMBRE" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="B_AUTOR_INSTITUCIONAL" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
           <Key>
             <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
@@ -148,6 +171,14 @@
           <Property Name="I_ID_SEXO" Type="int" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="CAT_TIPO_AUTORIA">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+          </Key>
+          <Property Name="I_ID_TIPO_AUTORIA" Type="int" Nullable="false" />
+          <Property Name="VC_NOMBRE" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="VC_DESCRIPCION" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="CAT_TIPO_DOCUMENTO">
           <Key>
             <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
@@ -186,7 +217,6 @@
           <Property Name="I_ID_LIBRO" Type="int" Nullable="false" />
           <Property Name="FK_TIPO_FECHA" Type="int" />
           <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="int" />
-          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="int" />
           <Property Name="I_ID_ESTADO" Type="int" />
           <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="int" />
           <Property Name="I_ID_NIVEL_REGISTRO" Type="int" />
@@ -231,6 +261,16 @@
           <Property Name="VC_TEXTO_COMPLETO" Type="varchar" MaxLength="500" />
           <Property Name="VC_PORTADA" Type="varchar" MaxLength="500" />
           <Property Name="VC_CODIGO_BARRA" Type="varchar" MaxLength="100" />
+          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="int" />
+        </EntityType>
+        <EntityType Name="T_LIBRO_AUTORIA">
+          <Key>
+            <PropertyRef Name="I_ID_AUTORIA" />
+            <PropertyRef Name="I_ID_LIBRO" />
+          </Key>
+          <Property Name="I_ID_AUTORIA" Type="int" Nullable="false" />
+          <Property Name="I_ID_TIPO_AUTORIA" Type="int" />
+          <Property Name="I_ID_LIBRO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_PERFIL">
           <Key>
@@ -261,6 +301,54 @@
           <Property Name="VC_FIRMA_DIGITAL" Type="varchar" MaxLength="500" />
           <Property Name="VC_NOMBRE_USUARIO" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_T_LIBRO__FK_T_LIBR_CAT_AUTO">
+          <End Role="CAT_AUTORIA" Type="SIDOCModel.Store.CAT_AUTORIA" Multiplicity="1" />
+          <End Role="T_LIBRO_AUTORIA" Type="SIDOCModel.Store.T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_AUTORIA">
+              <PropertyRef Name="I_ID_AUTORIA" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_AUTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO__FK_T_LIBR_CAT_TIPO">
+          <End Role="CAT_TIPO_AUTORIA" Type="SIDOCModel.Store.CAT_TIPO_AUTORIA" Multiplicity="0..1" />
+          <End Role="T_LIBRO_AUTORIA" Type="SIDOCModel.Store.T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_AUTORIA">
+              <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Autoria_T_Libro">
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="1" />
+          <End Role="T_LIBRO_AUTORIA" Type="SIDOCModel.Store.T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LIBRO">
+              <PropertyRef Name="I_ID_LIBRO" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_LIBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_CAT_CIUDAD_EDITORIAL">
+          <End Role="CAT_CIUDAD_EDITORIAL" Type="SIDOCModel.Store.CAT_CIUDAD_EDITORIAL" Multiplicity="0..1" />
+          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_CIUDAD_EDITORIAL">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_Libro_Cat_Nivel_Bibliografico">
           <End Role="CAT_NIVEL_BIBLIOGRAFICO" Type="SIDOCModel.Store.CAT_NIVEL_BIBLIOGRAFICO" Multiplicity="0..1" />
           <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
@@ -330,18 +418,6 @@
             </Principal>
             <Dependent Role="T_LIBRO">
               <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
-          <End Role="CAT_CIUDAD_EDITORIAL" Type="SIDOCModel.Store.CAT_CIUDAD_EDITORIAL" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Store.T_LIBRO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_CIUDAD_EDITORIAL">
-              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -444,47 +520,6 @@
           <EntitySet Name="Documentoes" EntityType="SIDOCModel.Documento" />
           <EntitySet Name="TipoDeFechas" EntityType="SIDOCModel.TipoDeFecha" />
           <EntitySet Name="TipoDeLiteraturas" EntityType="SIDOCModel.TipoDeLiteratura" />
-          <EntitySet Name="Libros" EntityType="SIDOCModel.Libro" />
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
-            <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" EntitySet="TematicaGeograficas" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
-            <End Role="CAT_CIUDAD_EDITORIAL" EntitySet="CiudadEditorials" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
-            <End Role="CAT_ESTADO" EntitySet="Estadoes" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
-            <End Role="CAT_INFORMACION_DESCRIPTIVA" EntitySet="InformacionDescriptivas" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Bibliografico" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico">
-            <End Role="CAT_NIVEL_BIBLIOGRAFICO" EntitySet="NivelBibliograficoes" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Registro" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro">
-            <End Role="CAT_NIVEL_REGISTRO" EntitySet="NivelDeRegistroes" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
-            <End Role="CAT_PERIOCIDAD" EntitySet="Periocidads" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Documento" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento">
-            <End Role="CAT_TIPO_DOCUMENTO" EntitySet="Documentoes" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Fecha" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha">
-            <End Role="CAT_TIPO_FECHA" EntitySet="TipoDeFechas" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Literatura" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura">
-            <End Role="CAT_TIPO_LITERATURA" EntitySet="TipoDeLiteraturas" />
-            <End Role="T_LIBRO" EntitySet="Libros" />
-          </AssociationSet>
           <EntitySet Name="Usuarios" EntityType="SIDOCModel.Usuario" />
           <EntitySet Name="NivelEducativoes" EntityType="SIDOCModel.NivelEducativo" />
           <AssociationSet Name="FK_T_USUARI_FK_T_USUA_CAT_NIVE" Association="SIDOCModel.FK_T_USUARI_FK_T_USUA_CAT_NIVE">
@@ -506,6 +541,62 @@
             <End Role="T_PERFIL" EntitySet="Perfils" />
             <End Role="Usuario" EntitySet="Usuarios" />
           </AssociationSet>
+          <EntitySet Name="Autorias" EntityType="SIDOCModel.Autoria" />
+          <EntitySet Name="Libros" EntityType="SIDOCModel.Libro" />
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+            <End Role="TematicaGeografica" EntitySet="TematicaGeograficas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_CAT_CIUDAD_EDITORIAL" Association="SIDOCModel.FK_T_LIBRO_CAT_CIUDAD_EDITORIAL">
+            <End Role="CiudadEditorial" EntitySet="CiudadEditorials" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+            <End Role="Estado" EntitySet="Estadoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+            <End Role="InformacionDescriptiva" EntitySet="InformacionDescriptivas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Bibliografico" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico">
+            <End Role="NivelBibliografico" EntitySet="NivelBibliograficoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Nivel_Registro" Association="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro">
+            <End Role="NivelDeRegistro" EntitySet="NivelDeRegistroes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI" Association="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+            <End Role="Periocidad" EntitySet="Periocidads" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Documento" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento">
+            <End Role="Documento" EntitySet="Documentoes" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Fecha" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha">
+            <End Role="TipoDeFecha" EntitySet="TipoDeFechas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Cat_Tipo_Literatura" Association="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura">
+            <End Role="TipoDeLiteratura" EntitySet="TipoDeLiteraturas" />
+            <End Role="T_LIBRO" EntitySet="Libros" />
+          </AssociationSet>
+          <EntitySet Name="TiposDeAutorias" EntityType="SIDOCModel.TiposDeAutoria" />
+          <EntitySet Name="AutoriasDelLibroes" EntityType="SIDOCModel.AutoriasDelLibro" />
+          <AssociationSet Name="FK_T_LIBRO__FK_T_LIBR_CAT_AUTO" Association="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_AUTO">
+            <End Role="Autoria" EntitySet="Autorias" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="AutoriasDelLibroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LIBRO__FK_T_LIBR_CAT_TIPO" Association="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_TIPO">
+            <End Role="CAT_TIPO_AUTORIA" EntitySet="TiposDeAutorias" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="AutoriasDelLibroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Libro_Autoria_T_Libro" Association="SIDOCModel.FK_T_Libro_Autoria_T_Libro">
+            <End Role="Libro" EntitySet="Libros" />
+            <End Role="T_LIBRO_AUTORIA" EntitySet="AutoriasDelLibroes" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TematicaGeografica">
           <Key>
@@ -514,7 +605,7 @@
           <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="TematicaGeografica" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="CiudadEditorial">
           <Key>
@@ -523,7 +614,7 @@
           <Property Name="I_ID_CIUDAD_EDITORIAL" Type="Int32" Nullable="false" />
           <Property Name="FK_PAIS_EDITORIAL" Type="Int32" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" FromRole="CAT_CIUDAD_EDITORIAL" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_CAT_CIUDAD_EDITORIAL" FromRole="CiudadEditorial" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="Estado">
           <Key>
@@ -531,7 +622,7 @@
           </Key>
           <Property Name="I_ID_ESTADO" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="CAT_ESTADO" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="Estado" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="InformacionDescriptiva">
           <Key>
@@ -540,7 +631,7 @@
           <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="CAT_INFORMACION_DESCRIPTIVA" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="InformacionDescriptiva" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="NivelBibliografico">
           <Key>
@@ -549,7 +640,7 @@
           <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="CAT_NIVEL_BIBLIOGRAFICO" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="NivelBibliografico" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="NivelDeRegistro">
           <Key>
@@ -558,7 +649,7 @@
           <Property Name="I_ID_NIVEL_REGISTRO" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="CAT_NIVEL_REGISTRO" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="NivelDeRegistro" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="Periocidad">
           <Key>
@@ -567,7 +658,7 @@
           <Property Name="I_ID_PERIOCIDAD" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="CAT_PERIOCIDAD" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="Periocidad" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="Documento">
           <Key>
@@ -576,7 +667,7 @@
           <Property Name="I_ID_TIPO_DOCUMENTO" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="CAT_TIPO_DOCUMENTO" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="Documento" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="TipoDeFecha">
           <Key>
@@ -585,7 +676,7 @@
           <Property Name="I_ID_TIPO_FECHA" Type="Int32" Nullable="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="CAT_TIPO_FECHA" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="TipoDeFecha" ToRole="T_LIBRO" />
         </EntityType>
         <EntityType Name="TipoDeLiteratura">
           <Key>
@@ -594,193 +685,8 @@
           <Property Name="I_ID_TIPO_LITERATURA" Type="Int32" Nullable="false" />
           <Property Name="VC_NOMBRE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="VC_DESCRIPCION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="CAT_TIPO_LITERATURA" ToRole="T_LIBRO" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="TipoDeLiteratura" ToRole="T_LIBRO" />
         </EntityType>
-        <EntityType Name="Libro">
-          <Documentation>
-            <Summary>T_LIBRO</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="I_ID_LIBRO" />
-          </Key>
-          <Property Name="I_ID_LIBRO" Type="Int32" Nullable="false" />
-          <Property Name="FK_TIPO_FECHA" Type="Int32" />
-          <Property Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" Type="Int32" />
-          <Property Name="I_ID_CIUDAD_EDITORIAL" Type="Int32" />
-          <Property Name="I_ID_ESTADO" Type="Int32" />
-          <Property Name="I_ID_NIVEL_BIBLIOGRAFICO" Type="Int32" />
-          <Property Name="I_ID_NIVEL_REGISTRO" Type="Int32" />
-          <Property Name="I_ID_PERIOCIDAD" Type="Int32" />
-          <Property Name="I_ID_TIPO_DOCUMENTO" Type="Int32" />
-          <Property Name="I_ID_TIPO_LITERATURA" Type="Int32" />
-          <Property Name="I_ID_INFORMACION_DESCRIPTIVA" Type="Int32" />
-          <Property Name="VC_NUMERO_ACCESO" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_NUMERO_CLASIFICACION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_PAGINA" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="VC_NUMERO_VOLUMEN_MONOG" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_TITULO_COLEC" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_SUBTITULO_COLEC" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_TITULO_MONOG" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_SUBTITULO_MONG" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_EDITOR_INSTITUCIONAL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="VC_TITULO_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_SUBTITULO_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_VOLUMEN_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_NUMERO_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_EXISTENCIAS_PUB_SER" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="SI_NUMERO_EJEMPLARES" Type="Int16" />
-          <Property Name="DT_FECHA_PUBLICACION" Type="DateTime" Precision="3" />
-          <Property Name="VC_SIMBOLO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_ISBN" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_GRADO_ACADEMICO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_INSTITUCION_TESIS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_NOTAS_PUB_SER" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_CATEGORIA_TEMATICA_PRIMARIA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_PAISES_PRIMARIOS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_DIVISION_ADMINISTRATIVA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_RESUMEN" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="DT_ALCANCE_TEMPORAL" Type="DateTime" Precision="3" />
-          <Property Name="VC_SIGLAS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="VC_DIRECCION_URL" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="DT_FECHA_INGRESO_DOC" Type="DateTime" Precision="3" />
-          <Property Name="VC_DOCUMENTALISTA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="TI_PRESTAMO_DISPONIBLE" Type="Byte" />
-          <Property Name="VC_TABLA_CONTENIDO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_TEXTO_COMPLETO" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_PORTADA" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="VC_CODIGO_BARRA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="T_LIBRO" ToRole="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" />
-          <NavigationProperty Name="CAT_CIUDAD_EDITORIAL" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CIUD" FromRole="T_LIBRO" ToRole="CAT_CIUDAD_EDITORIAL" />
-          <NavigationProperty Name="CAT_ESTADO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="T_LIBRO" ToRole="CAT_ESTADO" />
-          <NavigationProperty Name="CAT_INFORMACION_DESCRIPTIVA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="T_LIBRO" ToRole="CAT_INFORMACION_DESCRIPTIVA" />
-          <NavigationProperty Name="CAT_NIVEL_BIBLIOGRAFICO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="T_LIBRO" ToRole="CAT_NIVEL_BIBLIOGRAFICO" />
-          <NavigationProperty Name="CAT_NIVEL_REGISTRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="T_LIBRO" ToRole="CAT_NIVEL_REGISTRO" />
-          <NavigationProperty Name="CAT_PERIOCIDAD" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="T_LIBRO" ToRole="CAT_PERIOCIDAD" />
-          <NavigationProperty Name="CAT_TIPO_DOCUMENTO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="T_LIBRO" ToRole="CAT_TIPO_DOCUMENTO" />
-          <NavigationProperty Name="CAT_TIPO_FECHA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="T_LIBRO" ToRole="CAT_TIPO_FECHA" />
-          <NavigationProperty Name="CAT_TIPO_LITERATURA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="T_LIBRO" ToRole="CAT_TIPO_LITERATURA" />
-          </EntityType>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
-          <End Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Type="SIDOCModel.TematicaGeografica" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_CATEGORIA_TEMATICA_GEOGRAFICA">
-              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CIUD">
-          <End Role="CAT_CIUDAD_EDITORIAL" Type="SIDOCModel.CiudadEditorial" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_CIUDAD_EDITORIAL">
-              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
-          <End Role="CAT_ESTADO" Type="SIDOCModel.Estado" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_ESTADO">
-              <PropertyRef Name="I_ID_ESTADO" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_ESTADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
-          <End Role="CAT_INFORMACION_DESCRIPTIVA" Type="SIDOCModel.InformacionDescriptiva" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_INFORMACION_DESCRIPTIVA">
-              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Libro_Cat_Nivel_Bibliografico">
-          <End Role="CAT_NIVEL_BIBLIOGRAFICO" Type="SIDOCModel.NivelBibliografico" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_NIVEL_BIBLIOGRAFICO">
-              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Libro_Cat_Nivel_Registro">
-          <End Role="CAT_NIVEL_REGISTRO" Type="SIDOCModel.NivelDeRegistro" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_NIVEL_REGISTRO">
-              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
-          <End Role="CAT_PERIOCIDAD" Type="SIDOCModel.Periocidad" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_PERIOCIDAD">
-              <PropertyRef Name="I_ID_PERIOCIDAD" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_PERIOCIDAD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Libro_Cat_Tipo_Documento">
-          <End Role="CAT_TIPO_DOCUMENTO" Type="SIDOCModel.Documento" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_TIPO_DOCUMENTO">
-              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Libro_Cat_Tipo_Fecha">
-          <End Role="CAT_TIPO_FECHA" Type="SIDOCModel.TipoDeFecha" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_TIPO_FECHA">
-              <PropertyRef Name="I_ID_TIPO_FECHA" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="FK_TIPO_FECHA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Libro_Cat_Tipo_Literatura">
-          <End Role="CAT_TIPO_LITERATURA" Type="SIDOCModel.TipoDeLiteratura" Multiplicity="0..1" />
-          <End Role="T_LIBRO" Type="SIDOCModel.Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_TIPO_LITERATURA">
-              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
-            </Principal>
-            <Dependent Role="T_LIBRO">
-              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="I_ID_USUARIO" />
@@ -887,6 +793,256 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Autoria">
+          <Key>
+            <PropertyRef Name="I_ID_AUTORIA" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_AUTORIA" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="VC_NOMBRE" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="B_AUTOR_INSTITUCIONAL" Nullable="false" />
+          <NavigationProperty Name="T_LIBRO_AUTORIA" Relationship="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_AUTO" FromRole="Autoria" ToRole="T_LIBRO_AUTORIA" />
+        </EntityType>
+        <EntityType Name="Libro">
+          <Key>
+            <PropertyRef Name="I_ID_LIBRO" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_LIBRO" Nullable="false" />
+          <Property Type="Int32" Name="FK_TIPO_FECHA" />
+          <Property Type="Int32" Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+          <Property Type="Int32" Name="I_ID_ESTADO" />
+          <Property Type="Int32" Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+          <Property Type="Int32" Name="I_ID_NIVEL_REGISTRO" />
+          <Property Type="Int32" Name="I_ID_PERIOCIDAD" />
+          <Property Type="Int32" Name="I_ID_TIPO_DOCUMENTO" />
+          <Property Type="Int32" Name="I_ID_TIPO_LITERATURA" />
+          <Property Type="Int32" Name="I_ID_INFORMACION_DESCRIPTIVA" />
+          <Property Type="String" Name="VC_NUMERO_ACCESO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NUMERO_CLASIFICACION" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_PAGINA" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NUMERO_VOLUMEN_MONOG" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_TITULO_COLEC" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_SUBTITULO_COLEC" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_TITULO_MONOG" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_SUBTITULO_MONG" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_EDITOR_INSTITUCIONAL" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_TITULO_PUB_SER" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_SUBTITULO_PUB_SER" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_VOLUMEN_PUB_SER" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NUMERO_PUB_SER" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_EXISTENCIAS_PUB_SER" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="SI_NUMERO_EJEMPLARES" />
+          <Property Type="DateTime" Name="DT_FECHA_PUBLICACION" Precision="3" />
+          <Property Type="String" Name="VC_EDICION" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_SIMBOLO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_ISBN" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_GRADO_ACADEMICO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_INSTITUCION_TESIS" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_NOTAS_PUB_SER" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_CATEGORIA_TEMATICA_PRIMARIA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_PAISES_PRIMARIOS" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_DIVISION_ADMINISTRATIVA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_RESUMEN" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DT_ALCANCE_TEMPORAL" Precision="3" />
+          <Property Type="String" Name="VC_SIGLAS" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_DIRECCION_URL" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DT_FECHA_INGRESO_DOC" Precision="3" />
+          <Property Type="String" Name="VC_DOCUMENTALISTA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="TI_PRESTAMO_DISPONIBLE" />
+          <Property Type="String" Name="VC_TABLA_CONTENIDO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_TEXTO_COMPLETO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_PORTADA" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_CODIGO_BARRA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="I_ID_CIUDAD_EDITORIAL" />
+          <NavigationProperty Name="CAT_CATEGORIA_TEMATICA_GEOGRAFICA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_CATE" FromRole="T_LIBRO" ToRole="TematicaGeografica" />
+          <NavigationProperty Name="CAT_CIUDAD_EDITORIAL" Relationship="SIDOCModel.FK_T_LIBRO_CAT_CIUDAD_EDITORIAL" FromRole="T_LIBRO" ToRole="CiudadEditorial" />
+          <NavigationProperty Name="CAT_ESTADO" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_ESTA" FromRole="T_LIBRO" ToRole="Estado" />
+          <NavigationProperty Name="CAT_INFORMACION_DESCRIPTIVA" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_INFO" FromRole="T_LIBRO" ToRole="InformacionDescriptiva" />
+          <NavigationProperty Name="CAT_NIVEL_BIBLIOGRAFICO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Bibliografico" FromRole="T_LIBRO" ToRole="NivelBibliografico" />
+          <NavigationProperty Name="CAT_NIVEL_REGISTRO" Relationship="SIDOCModel.FK_T_Libro_Cat_Nivel_Registro" FromRole="T_LIBRO" ToRole="NivelDeRegistro" />
+          <NavigationProperty Name="CAT_PERIOCIDAD" Relationship="SIDOCModel.FK_T_LIBRO_FK_T_LIBR_CAT_PERI" FromRole="T_LIBRO" ToRole="Periocidad" />
+          <NavigationProperty Name="CAT_TIPO_DOCUMENTO" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Documento" FromRole="T_LIBRO" ToRole="Documento" />
+          <NavigationProperty Name="CAT_TIPO_FECHA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Fecha" FromRole="T_LIBRO" ToRole="TipoDeFecha" />
+          <NavigationProperty Name="CAT_TIPO_LITERATURA" Relationship="SIDOCModel.FK_T_Libro_Cat_Tipo_Literatura" FromRole="T_LIBRO" ToRole="TipoDeLiteratura" />
+          <NavigationProperty Name="T_LIBRO_AUTORIA" Relationship="SIDOCModel.FK_T_Libro_Autoria_T_Libro" FromRole="Libro" ToRole="T_LIBRO_AUTORIA" />
+        </EntityType>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_CATE">
+          <End Type="SIDOCModel.TematicaGeografica" Role="TematicaGeografica" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TematicaGeografica">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_CAT_CIUDAD_EDITORIAL">
+          <End Type="SIDOCModel.CiudadEditorial" Role="CiudadEditorial" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CiudadEditorial">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_CIUDAD_EDITORIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_ESTA">
+          <End Type="SIDOCModel.Estado" Role="Estado" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_INFO">
+          <End Type="SIDOCModel.InformacionDescriptiva" Role="InformacionDescriptiva" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformacionDescriptiva">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_INFORMACION_DESCRIPTIVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Nivel_Bibliografico">
+          <End Type="SIDOCModel.NivelBibliografico" Role="NivelBibliografico" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NivelBibliografico">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_BIBLIOGRAFICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Nivel_Registro">
+          <End Type="SIDOCModel.NivelDeRegistro" Role="NivelDeRegistro" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NivelDeRegistro">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_NIVEL_REGISTRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO_FK_T_LIBR_CAT_PERI">
+          <End Type="SIDOCModel.Periocidad" Role="Periocidad" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periocidad">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_PERIOCIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Documento">
+          <End Type="SIDOCModel.Documento" Role="Documento" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_DOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Fecha">
+          <End Type="SIDOCModel.TipoDeFecha" Role="TipoDeFecha" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeFecha">
+              <PropertyRef Name="I_ID_TIPO_FECHA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="FK_TIPO_FECHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Cat_Tipo_Literatura">
+          <End Type="SIDOCModel.TipoDeLiteratura" Role="TipoDeLiteratura" Multiplicity="0..1" />
+          <End Type="SIDOCModel.Libro" Role="T_LIBRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeLiteratura">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Principal>
+            <Dependent Role="T_LIBRO">
+              <PropertyRef Name="I_ID_TIPO_LITERATURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TiposDeAutoria">
+          <Key>
+            <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_TIPO_AUTORIA" Nullable="false" />
+          <Property Type="String" Name="VC_NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VC_DESCRIPCION" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_LIBRO_AUTORIA" Relationship="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_TIPO" FromRole="CAT_TIPO_AUTORIA" ToRole="T_LIBRO_AUTORIA" />
+        </EntityType>
+        <EntityType Name="AutoriasDelLibro">
+          <Key>
+            <PropertyRef Name="I_ID_AUTORIA" />
+            <PropertyRef Name="I_ID_LIBRO" />
+          </Key>
+          <Property Type="Int32" Name="I_ID_AUTORIA" Nullable="false" />
+          <Property Type="Int32" Name="I_ID_TIPO_AUTORIA" />
+          <Property Type="Int32" Name="I_ID_LIBRO" Nullable="false" />
+          <NavigationProperty Name="CAT_AUTORIA" Relationship="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_AUTO" FromRole="T_LIBRO_AUTORIA" ToRole="Autoria" />
+          <NavigationProperty Name="CAT_TIPO_AUTORIA" Relationship="SIDOCModel.FK_T_LIBRO__FK_T_LIBR_CAT_TIPO" FromRole="T_LIBRO_AUTORIA" ToRole="CAT_TIPO_AUTORIA" />
+          <NavigationProperty Name="T_LIBRO" Relationship="SIDOCModel.FK_T_Libro_Autoria_T_Libro" FromRole="T_LIBRO_AUTORIA" ToRole="Libro" />
+        </EntityType>
+        <Association Name="FK_T_LIBRO__FK_T_LIBR_CAT_AUTO">
+          <End Type="SIDOCModel.Autoria" Role="Autoria" Multiplicity="1" />
+          <End Type="SIDOCModel.AutoriasDelLibro" Role="T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autoria">
+              <PropertyRef Name="I_ID_AUTORIA" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_AUTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LIBRO__FK_T_LIBR_CAT_TIPO">
+          <End Type="SIDOCModel.TiposDeAutoria" Role="CAT_TIPO_AUTORIA" Multiplicity="0..1" />
+          <End Type="SIDOCModel.AutoriasDelLibro" Role="T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_TIPO_AUTORIA">
+              <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_TIPO_AUTORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Libro_Autoria_T_Libro">
+          <End Type="SIDOCModel.Libro" Role="Libro" Multiplicity="1" />
+          <End Type="SIDOCModel.AutoriasDelLibro" Role="T_LIBRO_AUTORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libro">
+              <PropertyRef Name="I_ID_LIBRO" />
+            </Principal>
+            <Dependent Role="T_LIBRO_AUTORIA">
+              <PropertyRef Name="I_ID_LIBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -982,59 +1138,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Libros">
-            <EntityTypeMapping TypeName="SIDOCModel.Libro">
-              <MappingFragment StoreEntitySet="T_LIBRO">
-                <ScalarProperty Name="I_ID_LIBRO" ColumnName="I_ID_LIBRO" />
-                <ScalarProperty Name="FK_TIPO_FECHA" ColumnName="FK_TIPO_FECHA" />
-                <ScalarProperty Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" ColumnName="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
-                <ScalarProperty Name="I_ID_CIUDAD_EDITORIAL" ColumnName="I_ID_CIUDAD_EDITORIAL" />
-                <ScalarProperty Name="I_ID_ESTADO" ColumnName="I_ID_ESTADO" />
-                <ScalarProperty Name="I_ID_NIVEL_BIBLIOGRAFICO" ColumnName="I_ID_NIVEL_BIBLIOGRAFICO" />
-                <ScalarProperty Name="I_ID_NIVEL_REGISTRO" ColumnName="I_ID_NIVEL_REGISTRO" />
-                <ScalarProperty Name="I_ID_PERIOCIDAD" ColumnName="I_ID_PERIOCIDAD" />
-                <ScalarProperty Name="I_ID_TIPO_DOCUMENTO" ColumnName="I_ID_TIPO_DOCUMENTO" />
-                <ScalarProperty Name="I_ID_TIPO_LITERATURA" ColumnName="I_ID_TIPO_LITERATURA" />
-                <ScalarProperty Name="I_ID_INFORMACION_DESCRIPTIVA" ColumnName="I_ID_INFORMACION_DESCRIPTIVA" />
-                <ScalarProperty Name="VC_NUMERO_ACCESO" ColumnName="VC_NUMERO_ACCESO" />
-                <ScalarProperty Name="VC_NUMERO_CLASIFICACION" ColumnName="VC_NUMERO_CLASIFICACION" />
-                <ScalarProperty Name="VC_PAGINA" ColumnName="VC_PAGINA" />
-                <ScalarProperty Name="VC_NUMERO_VOLUMEN_MONOG" ColumnName="VC_NUMERO_VOLUMEN_MONOG" />
-                <ScalarProperty Name="VC_TITULO_COLEC" ColumnName="VC_TITULO_COLEC" />
-                <ScalarProperty Name="VC_SUBTITULO_COLEC" ColumnName="VC_SUBTITULO_COLEC" />
-                <ScalarProperty Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" ColumnName="VC_NUMERO_TOTAL_VOLUMEN_COLEC" />
-                <ScalarProperty Name="VC_TITULO_MONOG" ColumnName="VC_TITULO_MONOG" />
-                <ScalarProperty Name="VC_SUBTITULO_MONG" ColumnName="VC_SUBTITULO_MONG" />
-                <ScalarProperty Name="VC_EDITOR_INSTITUCIONAL" ColumnName="VC_EDITOR_INSTITUCIONAL" />
-                <ScalarProperty Name="VC_TITULO_PUB_SER" ColumnName="VC_TITULO_PUB_SER" />
-                <ScalarProperty Name="VC_SUBTITULO_PUB_SER" ColumnName="VC_SUBTITULO_PUB_SER" />
-                <ScalarProperty Name="VC_VOLUMEN_PUB_SER" ColumnName="VC_VOLUMEN_PUB_SER" />
-                <ScalarProperty Name="VC_NUMERO_PUB_SER" ColumnName="VC_NUMERO_PUB_SER" />
-                <ScalarProperty Name="VC_EXISTENCIAS_PUB_SER" ColumnName="VC_EXISTENCIAS_PUB_SER" />
-                <ScalarProperty Name="SI_NUMERO_EJEMPLARES" ColumnName="SI_NUMERO_EJEMPLARES" />
-                <ScalarProperty Name="DT_FECHA_PUBLICACION" ColumnName="DT_FECHA_PUBLICACION" />
-                <ScalarProperty Name="VC_SIMBOLO" ColumnName="VC_SIMBOLO" />
-                <ScalarProperty Name="VC_ISBN" ColumnName="VC_ISBN" />
-                <ScalarProperty Name="VC_GRADO_ACADEMICO" ColumnName="VC_GRADO_ACADEMICO" />
-                <ScalarProperty Name="VC_INSTITUCION_TESIS" ColumnName="VC_INSTITUCION_TESIS" />
-                <ScalarProperty Name="VC_NOTAS_PUB_SER" ColumnName="VC_NOTAS_PUB_SER" />
-                <ScalarProperty Name="VC_CATEGORIA_TEMATICA_PRIMARIA" ColumnName="VC_CATEGORIA_TEMATICA_PRIMARIA" />
-                <ScalarProperty Name="VC_PAISES_PRIMARIOS" ColumnName="VC_PAISES_PRIMARIOS" />
-                <ScalarProperty Name="VC_DIVISION_ADMINISTRATIVA" ColumnName="VC_DIVISION_ADMINISTRATIVA" />
-                <ScalarProperty Name="VC_RESUMEN" ColumnName="VC_RESUMEN" />
-                <ScalarProperty Name="DT_ALCANCE_TEMPORAL" ColumnName="DT_ALCANCE_TEMPORAL" />
-                <ScalarProperty Name="VC_SIGLAS" ColumnName="VC_SIGLAS" />
-                <ScalarProperty Name="VC_DIRECCION_URL" ColumnName="VC_DIRECCION_URL" />
-                <ScalarProperty Name="DT_FECHA_INGRESO_DOC" ColumnName="DT_FECHA_INGRESO_DOC" />
-                <ScalarProperty Name="VC_DOCUMENTALISTA" ColumnName="VC_DOCUMENTALISTA" />
-                <ScalarProperty Name="TI_PRESTAMO_DISPONIBLE" ColumnName="TI_PRESTAMO_DISPONIBLE" />
-                <ScalarProperty Name="VC_TABLA_CONTENIDO" ColumnName="VC_TABLA_CONTENIDO" />
-                <ScalarProperty Name="VC_TEXTO_COMPLETO" ColumnName="VC_TEXTO_COMPLETO" />
-                <ScalarProperty Name="VC_PORTADA" ColumnName="VC_PORTADA" />
-                <ScalarProperty Name="VC_CODIGO_BARRA" ColumnName="VC_CODIGO_BARRA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="SIDOCModel.Usuario">
               <MappingFragment StoreEntitySet="T_USUARIO">
@@ -1087,6 +1190,87 @@
                 <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
                 <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
                 <ScalarProperty Name="I_ID_PERFIL" ColumnName="I_ID_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Autorias">
+            <EntityTypeMapping TypeName="SIDOCModel.Autoria">
+              <MappingFragment StoreEntitySet="CAT_AUTORIA">
+                <ScalarProperty Name="B_AUTOR_INSTITUCIONAL" ColumnName="B_AUTOR_INSTITUCIONAL" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="I_ID_AUTORIA" ColumnName="I_ID_AUTORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libros">
+            <EntityTypeMapping TypeName="SIDOCModel.Libro">
+              <MappingFragment StoreEntitySet="T_LIBRO">
+                <ScalarProperty Name="I_ID_CIUDAD_EDITORIAL" ColumnName="I_ID_CIUDAD_EDITORIAL" />
+                <ScalarProperty Name="VC_CODIGO_BARRA" ColumnName="VC_CODIGO_BARRA" />
+                <ScalarProperty Name="VC_PORTADA" ColumnName="VC_PORTADA" />
+                <ScalarProperty Name="VC_TEXTO_COMPLETO" ColumnName="VC_TEXTO_COMPLETO" />
+                <ScalarProperty Name="VC_TABLA_CONTENIDO" ColumnName="VC_TABLA_CONTENIDO" />
+                <ScalarProperty Name="TI_PRESTAMO_DISPONIBLE" ColumnName="TI_PRESTAMO_DISPONIBLE" />
+                <ScalarProperty Name="VC_DOCUMENTALISTA" ColumnName="VC_DOCUMENTALISTA" />
+                <ScalarProperty Name="DT_FECHA_INGRESO_DOC" ColumnName="DT_FECHA_INGRESO_DOC" />
+                <ScalarProperty Name="VC_DIRECCION_URL" ColumnName="VC_DIRECCION_URL" />
+                <ScalarProperty Name="VC_SIGLAS" ColumnName="VC_SIGLAS" />
+                <ScalarProperty Name="DT_ALCANCE_TEMPORAL" ColumnName="DT_ALCANCE_TEMPORAL" />
+                <ScalarProperty Name="VC_RESUMEN" ColumnName="VC_RESUMEN" />
+                <ScalarProperty Name="VC_DIVISION_ADMINISTRATIVA" ColumnName="VC_DIVISION_ADMINISTRATIVA" />
+                <ScalarProperty Name="VC_PAISES_PRIMARIOS" ColumnName="VC_PAISES_PRIMARIOS" />
+                <ScalarProperty Name="VC_CATEGORIA_TEMATICA_PRIMARIA" ColumnName="VC_CATEGORIA_TEMATICA_PRIMARIA" />
+                <ScalarProperty Name="VC_NOTAS_PUB_SER" ColumnName="VC_NOTAS_PUB_SER" />
+                <ScalarProperty Name="VC_INSTITUCION_TESIS" ColumnName="VC_INSTITUCION_TESIS" />
+                <ScalarProperty Name="VC_GRADO_ACADEMICO" ColumnName="VC_GRADO_ACADEMICO" />
+                <ScalarProperty Name="VC_ISBN" ColumnName="VC_ISBN" />
+                <ScalarProperty Name="VC_SIMBOLO" ColumnName="VC_SIMBOLO" />
+                <ScalarProperty Name="VC_EDICION" ColumnName="VC_EDICION" />
+                <ScalarProperty Name="DT_FECHA_PUBLICACION" ColumnName="DT_FECHA_PUBLICACION" />
+                <ScalarProperty Name="SI_NUMERO_EJEMPLARES" ColumnName="SI_NUMERO_EJEMPLARES" />
+                <ScalarProperty Name="VC_EXISTENCIAS_PUB_SER" ColumnName="VC_EXISTENCIAS_PUB_SER" />
+                <ScalarProperty Name="VC_NUMERO_PUB_SER" ColumnName="VC_NUMERO_PUB_SER" />
+                <ScalarProperty Name="VC_VOLUMEN_PUB_SER" ColumnName="VC_VOLUMEN_PUB_SER" />
+                <ScalarProperty Name="VC_SUBTITULO_PUB_SER" ColumnName="VC_SUBTITULO_PUB_SER" />
+                <ScalarProperty Name="VC_TITULO_PUB_SER" ColumnName="VC_TITULO_PUB_SER" />
+                <ScalarProperty Name="VC_EDITOR_INSTITUCIONAL" ColumnName="VC_EDITOR_INSTITUCIONAL" />
+                <ScalarProperty Name="VC_SUBTITULO_MONG" ColumnName="VC_SUBTITULO_MONG" />
+                <ScalarProperty Name="VC_TITULO_MONOG" ColumnName="VC_TITULO_MONOG" />
+                <ScalarProperty Name="VC_NUMERO_TOTAL_VOLUMEN_COLEC" ColumnName="VC_NUMERO_TOTAL_VOLUMEN_COLEC" />
+                <ScalarProperty Name="VC_SUBTITULO_COLEC" ColumnName="VC_SUBTITULO_COLEC" />
+                <ScalarProperty Name="VC_TITULO_COLEC" ColumnName="VC_TITULO_COLEC" />
+                <ScalarProperty Name="VC_NUMERO_VOLUMEN_MONOG" ColumnName="VC_NUMERO_VOLUMEN_MONOG" />
+                <ScalarProperty Name="VC_PAGINA" ColumnName="VC_PAGINA" />
+                <ScalarProperty Name="VC_NUMERO_CLASIFICACION" ColumnName="VC_NUMERO_CLASIFICACION" />
+                <ScalarProperty Name="VC_NUMERO_ACCESO" ColumnName="VC_NUMERO_ACCESO" />
+                <ScalarProperty Name="I_ID_INFORMACION_DESCRIPTIVA" ColumnName="I_ID_INFORMACION_DESCRIPTIVA" />
+                <ScalarProperty Name="I_ID_TIPO_LITERATURA" ColumnName="I_ID_TIPO_LITERATURA" />
+                <ScalarProperty Name="I_ID_TIPO_DOCUMENTO" ColumnName="I_ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="I_ID_PERIOCIDAD" ColumnName="I_ID_PERIOCIDAD" />
+                <ScalarProperty Name="I_ID_NIVEL_REGISTRO" ColumnName="I_ID_NIVEL_REGISTRO" />
+                <ScalarProperty Name="I_ID_NIVEL_BIBLIOGRAFICO" ColumnName="I_ID_NIVEL_BIBLIOGRAFICO" />
+                <ScalarProperty Name="I_ID_ESTADO" ColumnName="I_ID_ESTADO" />
+                <ScalarProperty Name="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" ColumnName="I_ID_CATEGORIA_TEMATICA_GEOGRAFICA" />
+                <ScalarProperty Name="FK_TIPO_FECHA" ColumnName="FK_TIPO_FECHA" />
+                <ScalarProperty Name="I_ID_LIBRO" ColumnName="I_ID_LIBRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposDeAutorias">
+            <EntityTypeMapping TypeName="SIDOCModel.TiposDeAutoria">
+              <MappingFragment StoreEntitySet="CAT_TIPO_AUTORIA">
+                <ScalarProperty Name="VC_DESCRIPCION" ColumnName="VC_DESCRIPCION" />
+                <ScalarProperty Name="VC_NOMBRE" ColumnName="VC_NOMBRE" />
+                <ScalarProperty Name="I_ID_TIPO_AUTORIA" ColumnName="I_ID_TIPO_AUTORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoriasDelLibroes">
+            <EntityTypeMapping TypeName="SIDOCModel.AutoriasDelLibro">
+              <MappingFragment StoreEntitySet="T_LIBRO_AUTORIA">
+                <ScalarProperty Name="I_ID_LIBRO" ColumnName="I_ID_LIBRO" />
+                <ScalarProperty Name="I_ID_TIPO_AUTORIA" ColumnName="I_ID_TIPO_AUTORIA" />
+                <ScalarProperty Name="I_ID_AUTORIA" ColumnName="I_ID_AUTORIA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

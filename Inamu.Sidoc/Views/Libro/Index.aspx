@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Inamu.Sidoc.Models.Libro>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Inamu.Sidoc.Models.Libro>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Index
@@ -17,34 +17,31 @@
             <%: Html.DisplayNameFor(model => model.I_ID_LIBRO) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_TIPO_FECHA.VC_DESCRIPCION) %>
+            <%: Html.DisplayNameFor(model => model.FK_TIPO_FECHA) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_CATEGORIA_TEMATICA_GEOGRAFICA.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_CIUDAD_EDITORIAL.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_ESTADO) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_ESTADO.DESCRIPCION) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_NIVEL_BIBLIOGRAFICO) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_NIVEL_BIBLIOGRAFICO.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_NIVEL_REGISTRO) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_NIVEL_REGISTRO.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_PERIOCIDAD) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_PERIOCIDAD.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_TIPO_DOCUMENTO) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_TIPO_DOCUMENTO.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_TIPO_LITERATURA) %>
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.CAT_TIPO_LITERATURA.VC_NOMBRE) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.CAT_INFORMACION_DESCRIPTIVA.VC_NOMBRE) %>
+            <%: Html.DisplayNameFor(model => model.I_ID_INFORMACION_DESCRIPTIVA) %>
         </th>
         <th>
             <%: Html.DisplayNameFor(model => model.VC_NUMERO_ACCESO) %>
@@ -96,6 +93,9 @@
         </th>
         <th>
             <%: Html.DisplayNameFor(model => model.DT_FECHA_PUBLICACION) %>
+        </th>
+        <th>
+            <%: Html.DisplayNameFor(model => model.VC_EDICION) %>
         </th>
         <th>
             <%: Html.DisplayNameFor(model => model.VC_SIMBOLO) %>
@@ -154,6 +154,9 @@
         <th>
             <%: Html.DisplayNameFor(model => model.VC_CODIGO_BARRA) %>
         </th>
+        <th>
+            <%: Html.DisplayNameFor(model => model.I_ID_CIUDAD_EDITORIAL) %>
+        </th>
         <th></th>
     </tr>
 
@@ -163,34 +166,31 @@
             <%: Html.DisplayFor(modelItem => item.I_ID_LIBRO) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_TIPO_FECHA.VC_DESCRIPCION) %>
+            <%: Html.DisplayFor(modelItem => item.FK_TIPO_FECHA) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_CATEGORIA_TEMATICA_GEOGRAFICA.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_CATEGORIA_TEMATICA_GEOGRAFICA) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_CIUDAD_EDITORIAL.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_ESTADO) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_ESTADO.DESCRIPCION) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_NIVEL_BIBLIOGRAFICO) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_NIVEL_BIBLIOGRAFICO.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_NIVEL_REGISTRO) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_NIVEL_REGISTRO.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_PERIOCIDAD) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_PERIOCIDAD.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_TIPO_DOCUMENTO) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_TIPO_DOCUMENTO.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_TIPO_LITERATURA) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_TIPO_LITERATURA.VC_NOMBRE) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.CAT_INFORMACION_DESCRIPTIVA.VC_NOMBRE) %>
+            <%: Html.DisplayFor(modelItem => item.I_ID_INFORMACION_DESCRIPTIVA) %>
         </td>
         <td>
             <%: Html.DisplayFor(modelItem => item.VC_NUMERO_ACCESO) %>
@@ -242,6 +242,9 @@
         </td>
         <td>
             <%: Html.DisplayFor(modelItem => item.DT_FECHA_PUBLICACION) %>
+        </td>
+        <td>
+            <%: Html.DisplayFor(modelItem => item.VC_EDICION) %>
         </td>
         <td>
             <%: Html.DisplayFor(modelItem => item.VC_SIMBOLO) %>
@@ -301,9 +304,23 @@
             <%: Html.DisplayFor(modelItem => item.VC_CODIGO_BARRA) %>
         </td>
         <td>
+            <%: Html.DisplayFor(modelItem => item.I_ID_CIUDAD_EDITORIAL) %>
+        </td>
+        <td>
             <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
             <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) %> |
             <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <%: Html.DisplayFor(modelItem => item.CAT_ESTADO.DESCRIPCION) %>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
 <% } %>

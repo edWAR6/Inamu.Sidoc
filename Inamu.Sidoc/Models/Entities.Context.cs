@@ -35,11 +35,14 @@ namespace Inamu.Sidoc.Models
         public DbSet<Documento> Documentoes { get; set; }
         public DbSet<TipoDeFecha> TipoDeFechas { get; set; }
         public DbSet<TipoDeLiteratura> TipoDeLiteraturas { get; set; }
-        public DbSet<Libro> Libros { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<NivelEducativo> NivelEducativoes { get; set; }
         public DbSet<Genero> Generoes { get; set; }
         public DbSet<TipoDeIdentificacion> TipoDeIdentificacions { get; set; }
         public DbSet<Perfil> Perfils { get; set; }
+        public DbSet<Autoria> Autorias { get; set; }
+        public DbSet<Libro> Libros { get; set; }
+        public DbSet<TiposDeAutoria> TiposDeAutorias { get; set; }
+        public DbSet<AutoriasDelLibro> AutoriasDelLibroes { get; set; }
     }
 }

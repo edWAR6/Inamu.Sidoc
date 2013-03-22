@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AutoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibroController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -178,6 +179,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Autoria.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AutoriasDelLibro.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CiudadEditorial.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -236,6 +243,9 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoDeLiteratura.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TiposDeAutoria.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
@@ -342,6 +352,11 @@
     <Content Include="Scripts\knockout-2.2.1.debug.js" />
     <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Autoria\Create.aspx" />
+    <Content Include="Views\Autoria\Delete.aspx" />
+    <Content Include="Views\Autoria\Details.aspx" />
+    <Content Include="Views\Autoria\Edit.aspx" />
+    <Content Include="Views\Autoria\Index.aspx" />
     <Content Include="Views\Libro\Create.aspx" />
     <Content Include="Views\Libro\Delete.aspx" />
     <Content Include="Views\Libro\Details.aspx" />

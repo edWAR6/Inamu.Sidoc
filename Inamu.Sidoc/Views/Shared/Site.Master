@@ -26,6 +26,7 @@
                             <li><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
                             <% if (Request.IsAuthenticated) { %>
                                 <li><%: Html.ActionLink("Libros", "Index", "Libro") %></li>
+                                <li><%: Html.ActionLink("Autorias!! :D", "Index", "Autoria") %></li>
                             <% } %>
                         </ul>
                     </nav>

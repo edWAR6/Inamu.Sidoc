@@ -14,10 +14,14 @@ namespace Inamu.Sidoc.Models
     
     public partial class Libro
     {
+        public Libro()
+        {
+            this.T_LIBRO_AUTORIA = new HashSet<AutoriasDelLibro>();
+        }
+    
         public int I_ID_LIBRO { get; set; }
         public Nullable<int> FK_TIPO_FECHA { get; set; }
         public Nullable<int> I_ID_CATEGORIA_TEMATICA_GEOGRAFICA { get; set; }
-        public Nullable<int> I_ID_CIUDAD_EDITORIAL { get; set; }
         public Nullable<int> I_ID_ESTADO { get; set; }
         public Nullable<int> I_ID_NIVEL_BIBLIOGRAFICO { get; set; }
         public Nullable<int> I_ID_NIVEL_REGISTRO { get; set; }
@@ -42,6 +46,7 @@ namespace Inamu.Sidoc.Models
         public string VC_EXISTENCIAS_PUB_SER { get; set; }
         public Nullable<short> SI_NUMERO_EJEMPLARES { get; set; }
         public Nullable<System.DateTime> DT_FECHA_PUBLICACION { get; set; }
+        public string VC_EDICION { get; set; }
         public string VC_SIMBOLO { get; set; }
         public string VC_ISBN { get; set; }
         public string VC_GRADO_ACADEMICO { get; set; }
@@ -61,6 +66,7 @@ namespace Inamu.Sidoc.Models
         public string VC_TEXTO_COMPLETO { get; set; }
         public string VC_PORTADA { get; set; }
         public string VC_CODIGO_BARRA { get; set; }
+        public Nullable<int> I_ID_CIUDAD_EDITORIAL { get; set; }
     
         public virtual TematicaGeografica CAT_CATEGORIA_TEMATICA_GEOGRAFICA { get; set; }
         public virtual CiudadEditorial CAT_CIUDAD_EDITORIAL { get; set; }
@@ -72,5 +78,6 @@ namespace Inamu.Sidoc.Models
         public virtual Documento CAT_TIPO_DOCUMENTO { get; set; }
         public virtual TipoDeFecha CAT_TIPO_FECHA { get; set; }
         public virtual TipoDeLiteratura CAT_TIPO_LITERATURA { get; set; }
+        public virtual ICollection<AutoriasDelLibro> T_LIBRO_AUTORIA { get; set; }
     }
 }
