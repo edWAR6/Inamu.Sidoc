@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d1e10e5ba0fe44b8bfca4ef84539cc43" Name="Diagram1" ZoomLevel="93">
+      <Diagram DiagramId="d1e10e5ba0fe44b8bfca4ef84539cc43" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="SIDOCModel.TematicaGeografica" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SIDOCModel.CiudadEditorial" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="SIDOCModel.Estado" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
